@@ -12,6 +12,7 @@ label min_nora_masturbating:
         "You wonder if she sometimes comes in early to the lab to masturbate?"
         $ nora_masturbating.inc_level(0)
         $ noraO.change_resist(-nora_masturbating.use_red(0,noraO.resist_score))
+        hide nora
         jump labAlone
 
     else: #You can interrupt or just watch..
@@ -31,6 +32,7 @@ label min_nora_masturbating:
                 "When she finishes, she grabs a paper towel from a nearby desk and wipes her hands off. She quickly dresses then walks out of the room, leaving you alone in the lab."
                 $ nora_masturbating.inc_level(1)
                 $ noraO.change_resist(-nora_masturbating.use_red(1,noraO.resist_score))
+                hide nora
                 jump labAlone
             "Fuck Her":
                 me "If you insist."
@@ -85,6 +87,7 @@ label min_nora_masturbating:
                         "Nora stands up carefully on shaky legs and pulls up her panties to wipe away your cum."
                 $ nora_masturbating.inc_level(1)
                 $ noraO.change_resist(-nora_masturbating.use_red(1,noraO.resist_score))
+                hide nora
                 "You decide to leave the lab to allow Nora time to clean up."
                 jump campusAfternoon
             "Reveal Yourself" if noraO.exhib:
@@ -98,6 +101,7 @@ label min_nora_masturbating:
                 "When she finishes, she grabs a paper towel from a nearby desk and wipes her hands off. She quickly dresses then walks out of the room, leaving you alone in the lab."
                 $ nora_masturbating.inc_level(1)
                 $ noraO.change_resist(-nora_masturbating.use_red(1,noraO.resist_score))
+                hide nora
                 jump labAlone
 
     return
