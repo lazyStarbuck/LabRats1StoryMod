@@ -606,6 +606,7 @@ label overCont:
     $ nora_copcar = Minor_Scene("Nora Copcar", 3, default_red_avail) #  nothing needed.
     $ nora_beach_tan = Minor_Scene("Nora Beach Tan", 3, default_red_avail) # nothing needed.
     $ nora_schoolgirl = Minor_Scene("Nora Schoolgirl", 1, default_red_avail) # nothing needed.
+    $ nora_masturbating = Minor_Scene("Nora Masturbating", 2, default_red_avail) #Test masturbating scene
 
     #Steph events
     $ steph_hub = Minor_Scene("Steph Hub", 6, default_red_avail*2) #
@@ -740,6 +741,10 @@ label overCont:
     $ alex_steph_lab_check = Random_Event(60,30,70,10)
     # $ shower_interupt_check = Random_Event(30,80,60,15)
     $ shower_interupt_check = Growth_Event(30,80,60,15,5,70)
+
+    #TODO mod scene checks
+    # Growth_Event Args ==  (min, max, start, inc, growth, growthLimit)
+    $ nora_masturbating_chance = Growth_Event(10,25,10,5,5,60)
 
     $ purple_serum_debuff = 15 #Amount it lowers influence by
     $ red_serum_buff = 15 #Amount it raises influence by
@@ -3497,8 +3502,11 @@ label labMorning:
         menu:
             "Try the code lock.":
                 if has_lab_code:
-                    "You key in the lab door code and enter. You've got the lab entirely to yourself."
-                    jump labAlone
+                    "You key in the lab door code and enter. You've got the lab entirely to yourself."  #TODO
+                    if noraO.slut_score > 40 and nora_masturbating_chance.check_event():
+                        jump min_nora_masturbating
+                    else:
+                        jump labAlone
                 else:
                     "You try a few random codes, and each time the panel flashes back red at you. No luck just guessing."
                     "With nothing else to do here, you head back to the center of campus."
